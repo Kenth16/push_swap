@@ -6,7 +6,7 @@
 /*   By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:40:04 by knavarre          #+#    #+#             */
-/*   Updated: 2024/03/02 19:28:22 by knavarre         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:07:38 by knavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ int	positionlst(long value, char **avs, int i)
 		i++;
 	}
 	return (compteur);
+}
+
+void	free_split(char **avs, int i)
+{
+	if (!avs)
+		return ;
+	while (avs[i])
+	{
+		free(avs[i]);
+		i++;
+	}
+	free(avs);
 }

@@ -6,13 +6,13 @@
 /*   By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:30:45 by knavarre          #+#    #+#             */
-/*   Updated: 2024/03/04 13:14:39 by knavarre         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:55:59 by knavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	remetbienstp(t_list **a)
+void	put_in_order(t_list **a)
 {
 	t_list	*tmp;
 	int		compteur;
@@ -77,5 +77,29 @@ void	init_algo5(t_list **a, t_list **b)
 		else
 			ra(a);
 	}
-	remetbienstp(a);
+	put_in_order(a);
+}
+
+void	init_algo5plus(t_list **a, t_list **b, int chunk)
+{
+	check_final(a, b, chunk);
+	init_algo3(a);
+	while (ft_lstsize(*b) != 0)
+		reverse_algo(a, b);
+	put_in_order(a);
+}
+
+void	reverse_algo(t_list **a, t_list **b)
+{
+	int	i_total;
+	int	i_a;
+	int	i_b;
+
+	i_a = count_a(*a, *b);
+	i_b = 0;
+	i_total = count_total(*a, *b, &i_a, &i_b);
+	if (i_total == 0)
+		pa(b, a);
+	else
+		pushpush(a, b, i_a, i_b);
 }

@@ -6,7 +6,7 @@
 #    By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/02 18:14:12 by knavarre          #+#    #+#              #
-#    Updated: 2024/03/04 15:46:18 by knavarre         ###   ########.fr        #
+#    Updated: 2024/03/13 16:51:57 by knavarre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 INSTRUCTION = instruction/
 LIBFT = libft/
-SRC = Erreur.c main.c Algorithme.c Algorithme100.c ft_testfonction.c \
+SRC = Erreur.c main.c Algorithme.c For_algo5plus.c For_reverse_algo.c Number_for_move.c \
 		$(INSTRUCTION)change_list.c \
 		$(INSTRUCTION)rotate.c \
 		$(INSTRUCTION)rotate_inverse.c \

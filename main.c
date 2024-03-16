@@ -6,7 +6,7 @@
 /*   By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:45:58 by knavarre          #+#    #+#             */
-/*   Updated: 2024/03/04 19:10:41 by knavarre         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:00:31 by knavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,6 @@ t_list	*ft_lstnew(long value, int placement)
 	s->pos = placement;
 	s->next = NULL;
 	return (s);
-}
-
-void	print_list(t_list *li)
-{
-	t_list	*temp;
-
-	if (!li)
-	{
-		printf("Rien a afficher, la liste est vide\n");
-		return ;
-	}
-	printf("\nIndex :  ");
-	temp = li;
-	while (temp != NULL)
-	{
-		printf("[%d] ", temp->pos);
-		temp = temp->next;
-	}
-	printf("\n");
-	printf("\n");
 }
 
 void	free_stack(t_list **lst)
@@ -73,16 +53,14 @@ void	start(t_list **a, t_list **b)
 			init_algo5(a, b);
 		else if (taille > 5 && taille <= 100)
 		{
-			chunk = taille / 5;
+			chunk = taille / 3;
 			init_algo5plus(a, b, chunk);
 		}
 		else if (taille > 100)
 		{
-			chunk = taille / 11;
+			chunk = taille / 5;
 			init_algo5plus(a, b, chunk);
 		}
-		print_list(*a);
-		print_list(*b);		
 	}
 }
 
@@ -104,13 +82,29 @@ int	main(int ac, char **av)
 		i++;
 	}
 	if (isok(avs, i))
-		init_stack(avs, i, &li_a);
+		init_stack(avs, i, &li_a, &li_b);
 	else
-	{
 		write(2, "Error\n", 6);
-		return (1);
-	}
-	start(&li_a, &li_b);
-	free_stack(&li_b);
-	free_stack(&li_a);
+	if (ac == 2)
+		free_split(avs, i);
 }
+
+// void	print_list(t_list *li)
+// {
+// 	t_list	*temp;
+
+// 	if (!li)
+// 	{
+// 		printf("Rien a afficher, la liste est vide\n");
+// 		return ;
+// 	}
+// 	printf("\nIndex :  ");
+// 	temp = li;
+// 	while (temp != NULL)
+// 	{
+// 		printf("[%d] ", temp->pos);
+// 		temp = temp->next;
+// 	}
+// 	printf("\n");
+// 	printf("\n");
+// }

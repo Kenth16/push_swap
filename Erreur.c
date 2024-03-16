@@ -6,7 +6,7 @@
 /*   By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:45:59 by knavarre          #+#    #+#             */
-/*   Updated: 2024/03/03 13:02:12 by knavarre         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:09:24 by knavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	isok(char **avs, int i)
 	return (1);
 }
 
-void	init_stack(char **avs, int i, t_list **li_a)
+void	init_stack(char **avs, int i, t_list **li_a, t_list **li_b)
 {
 	t_list	*new;
 	int		pos;
@@ -71,6 +71,9 @@ void	init_stack(char **avs, int i, t_list **li_a)
 		ft_lstadd_back(li_a, new);
 		i++;
 	}
+	start(li_a, li_b);
+	free_stack(li_b);
+	free_stack(li_a);
 }
 
 int	is_sorted(t_list **a)

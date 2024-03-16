@@ -6,7 +6,7 @@
 /*   By: knavarre <knavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:50:10 by knavarre          #+#    #+#             */
-/*   Updated: 2024/03/04 14:52:46 by knavarre         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:55:15 by knavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,24 @@ typedef struct s_list
 	struct s_list	*next;
 }		t_list;
 
-/**************************** Algo + Algo100 **********************************/
+/******************* Algo + Algo5plus + ReverseAlgo *************************/
 
-void	remetbienstp(t_list **a);
+void	put_in_order(t_list **a);
 void	init_algo3(t_list **l);
 void	init_algo5(t_list **a, t_list **b);
+void	init_algo5plus(t_list **a, t_list **b, int chunk);
 int		check_top(t_list **a, int chunk);
 int		check_bot(t_list **a, int chunk);
+void	check_cond2(t_list **a, t_list **b, int chunk, int value);
+void	check_cond1(t_list **a, t_list **b, int chunk, int value);
 void	check_final(t_list **a, t_list **b, int chunk);
-void	init_algo5plus(t_list **a, t_list **b, int chunk);
 void	reverse_algo(t_list **a, t_list **b);
+int		nb_move(t_list *li_a, int a);
+void	pushpush(t_list **li_a, t_list **li_b, int a, int b);
+int		count_a(t_list *a, t_list *b);
+int		count_same(t_list *li_a, t_list *li_b, int a, int b);
+int		count_total(t_list *a, t_list *b, int *i_a, int *i_b);
+void	push_cond1(t_list **li_a, t_list **li_b, int *a, int *b);
 
 /******************************** libft ************************************/
 
@@ -55,6 +63,7 @@ void	del_front_list(t_list **li);
 void	del_back_list(t_list **li);
 int		ft_strcmp(char *s1, char *s2);
 int		positionlst(long value, char **avs, int i);
+void	free_split(char **avs, int i);
 
 /****************************** instruction ***********************************/
 
@@ -76,7 +85,7 @@ void	pa(t_list **b, t_list **a);
 
 /******************************** ft_error ************************************/
 
-void	init_stack(char **avs, int i, t_list **li_a);
+void	init_stack(char **avs, int i, t_list **li_a, t_list **li_b);
 int		isok(char **avs, int i);
 int		okintokdup(char **str, int i);
 int		is_sorted(t_list **a);
@@ -88,8 +97,5 @@ int		main(int ac, char **av);
 void	print_list(t_list *li);
 void	free_stack(t_list **lst);
 void	start(t_list **a, t_list **b);
-
-
-int		count_deplacemen0t_in_a(t_list *a, t_list *b);
 
 #endif
